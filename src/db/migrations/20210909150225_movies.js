@@ -1,12 +1,14 @@
 exports.up = function (knex) {
-  return knex.schema.createTable('critics', (table) => {
-    table.increments('critic_id').primary();
-    table.string('preferred_name');
-    table.string('surname');
-    table.string('organization_name');
+  return knex.schema.createTable('movies', (table) => {
+    table.increments('movie_id').primary();
+    table.string('title');
+    table.integer('runtime_in_minutes');
+    table.string('rating');
+    table.text('description');
+    table.string('image_url');
   });
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTable('critics');
+  return knex.schema.dropTable('movies');
 };

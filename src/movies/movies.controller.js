@@ -30,8 +30,14 @@ async function listTheatersShowing(req, res) {
   res.send({ data });
 }
 
+async function listReviews(req, res) {
+  const data = await moviesService.listReviews(res.locals.movie.movie_id);
+  res.send({ data });
+}
+
 module.exports = {
   list,
   read: [asyncErrorBoundary(movieIdExists), read],
   listTheatersShowing: [asyncErrorBoundary(movieIdExists), listTheatersShowing],
+  listReviews: [asyncErrorBoundary(movieIdExists), listReviews],
 };
