@@ -12,10 +12,11 @@ const notFound = require('./errors/notFound');
 
 const app = express();
 
+app.use(express.json());
 app.use(cors());
 
 app.use('/movies', moviesRouter);
-app.use('/review', reviewsRouter);
+app.use('/reviews', reviewsRouter);
 app.use('/theaters', theatersRouter);
 
 app.use(notFound);
